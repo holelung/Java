@@ -20,10 +20,11 @@ public class Test1 {
 		/* Java API DOC : 
 		 * Java에서 제공해주는 코드의 사용법이 설명 되어있는 문서 
 		 * 
+		 * 
 		 * DOC 확인 방법
 		 * 1) java 21 api 검색
 		 * 
-		 * 2)
+		 * 2) 궁금한 코드를 클릭 -> shift + f2
 		 * */
 	}
 
