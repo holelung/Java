@@ -227,6 +227,7 @@ public class LoopPractice {
 			return;
 		}
 		
+		
 		for(int i=1; i<=input; i++) {
 			if(input%i==0) {
 				count++;
@@ -269,9 +270,9 @@ public class LoopPractice {
 			return;
 		}
 		
-		for(int i=1; i<=input; i++) {
+		for(int i=2; i<=input; i++) {
 			int temp=0;
-			for(int j=1; j<=i; j++) {
+			for(int j=2; j<=i; j++) {
 				if(i%j==0) {
 					temp++;
 				}
