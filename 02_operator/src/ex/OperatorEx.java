@@ -72,7 +72,7 @@ public class OperatorEx {
 		String result = (num1 % 3 == 0) ? "맞습니다." : "아닙니다.";
 
 		System.out.printf("%d은 3의 배수가 %s", num1, result);
-
+		sc.close();
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class OperatorEx {
 
 		String result = age <= 13 ? "어린이" : (age < 20 ? "청소년" : "성인");
 		System.out.printf("%d세는 %s입니다.", age, result);
-
+		sc.close();
 	}
 
 }

@@ -14,6 +14,7 @@ public class ScannerEx1 {
 		int num2 = sc.nextInt();
 		System.out.println("입력 받은 num2 : " + num2);
 		
+		sc.close();
 		System.out.printf("두 수의 합 : %d", num1+num2);
 	}
 }

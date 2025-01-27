@@ -129,7 +129,7 @@ public class ArrayService2 {
 			}
 		}
 		System.out.println("존재하지 않습니다.");
-		
+		sc.close();
 		
 	}
 
