@@ -47,6 +47,15 @@ public class StudentDTO {
 	}
 	
 	
+	public int sumScore() {
+		return html+css+js+java;
+	}
+	
+	public double avgScore() {
+		double avg = sumScore()/4.0;
+		return avg;
+	}
+	
 	
 	// getter/setter : 필드 간접 접근 방법
 	// option + command + s -> r : getter/setter 자동생성
