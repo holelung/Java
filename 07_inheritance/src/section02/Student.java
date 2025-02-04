@@ -21,10 +21,30 @@ public class Student extends Person {
 		System.out.println("[Student 매개 변수가 있는 생성자로 생성됨]");
 	}
 
+	// 연속으로 재정의
+	// Object.toString() -> Person.toString() -> Student.toString()
+	@Override
 	public String toString() {
-		return String.format("name : %s / age : %d / schoolName : %s\n", getName(), getAge(), schoolName);
+		return super.toString() + "/ 학교명 : "+ schoolName;
 	}
 
+	// introduce Overriding
+	// 오버라이딩 성립조건
+	// [변경 불가]
+	// -반환명
+	// 메서드명
+	// 매개변수(개수, 순서,타입)
+	
+	// [변경 가능]
+	// - 접근 제어자( 기존 -> 넓은범위)
+	// - 예외 처리 (기존->넓은 범위)
+	
+	@Override// 오버라이딩 명시 + 성립조건 맞는지 검사 지시
+	public String introduce(String nickName) {
+		return String.format("[Student가 재정의] 내 이름은 %s, %s 이죠!", super.getName(),nickName);
+	}
+	
+	
 	// getter/setter
 	public String getSchoolName() {
 		return schoolName;

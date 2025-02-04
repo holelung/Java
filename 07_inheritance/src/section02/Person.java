@@ -1,6 +1,6 @@
 package section02;
 
-public class Person {
+public /*final*/ class Person {
 	private String name;
 	private int age;
 
@@ -15,10 +15,16 @@ public class Person {
 		this.age = age;
 	}
 
+	@Override
 	public String toString() {
-		return String.format("name : %s / age : %d\n", name, age);
+		return String.format("name : %s / age : %d ", name, age);
 	}
-
+	
+	public /*final*/ String introduce(String nickName) {
+		return String.format("[Person] 이름은 %s 이고 별명은 %s입니다.", name, nickName);
+	}
+	
+	
 	// getter/setter area
 	public String getName() {
 		return name;
