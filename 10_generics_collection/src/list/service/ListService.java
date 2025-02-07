@@ -217,8 +217,12 @@ public class ListService {
 		list3.addAll(list1); // List<Parent>
 		list3.addAll(list2); // List<Child>
 		
-		List<String> temp = new ArrayList<String>();
+//		List<String> temp = new ArrayList<String>();
 		//list3.addAll(temp); // String은 Parent 상속 관계 X => error
+		
+		for(Parent p : list3) {
+			System.out.println(p);
+		}
 		
 	}
 }
