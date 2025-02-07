@@ -10,7 +10,7 @@ import list.dto.BookDTO;
  */
 public class BookService {
 
-	private List<BookDTO> bookList = new ArrayList<BookDTO>();
+	private List<BookDTO> bookList = new ArrayList<>();
 
 	// 기본생성자
 	public BookService() {
@@ -101,4 +101,108 @@ public class BookService {
 	}
 	
 	
+	/**
+	 * 제목으로 책 찾기
+	 */
+	public String selectTitle(String bookTitle) {
+		int target = checkTitle(bookTitle);
+		
+		if (target== -1) {
+			return String.format("[%s]책이 없습니다.", bookTitle);
+		}
+		return bookList.get(target).toString();
+	}
+	
+	/**
+	 * 제목 확인 메서드
+	 * @param inputTitle : 책 제목
+	 * @return 매개변수와 같은 값의 요소가 있다면 해당 index/ 없다면 -1
+	 */
+	public int checkTitle(String inputTitle) {
+		for(int i=0; i<bookList.size(); i++) {
+			if(bookList.get(i).getTitle().equals(inputTitle)) {
+				return i;
+			}
+		}
+		
+		return -1;
+	}
+	
+	/**
+	 * 책 제목 받아서 삭제하기
+	 * @param bookTitle
+	 * @return 삭제 성공: 책이 삭제되었습니다/ 실패: 책이 없습니다.
+	 */
+	public String deleteBookTitle(String bookTitle) {
+		int target = checkTitle(bookTitle);
+		
+		if(target==-1) {
+			return String.format("[%s]책이 없습니다.", bookTitle);
+		}
+		bookList.remove(target);
+		
+		return String.format("[%s]책이 삭제되었습니다.", bookTitle);
+	}
+	
+	/**
+	 * 출판사이름이 같은 책 모두찾기
+	 * @param publisher : 출판
+	 * @return 0~n 개의 결과를 가지는 List
+	 */
+	public List<BookDTO> selectPublisherAll(String publisher) {
+		List<BookDTO> samePub = new ArrayList<BookDTO>();
+		
+		for(BookDTO b : bookList) {
+			if(b.getPublisher().equals(publisher)) {
+				samePub.add(b);
+			}
+		}
+		
+		return samePub;
+	}
+	
+	/**
+	 * 저자이름이 같은 책 모두 찾기
+	 * @param author : 저자 이름
+	 * @return 0~n 개의 결과를 가지는 List
+	 */
+	public List<BookDTO> selectAuthorAll(String author) {
+		List<BookDTO> sameAuthor = new ArrayList<BookDTO>();
+		
+		for(BookDTO b : bookList) {
+			if(b.getAuthor().equals(author)) {
+				sameAuthor.add(b);
+			}
+		}
+		
+		return sameAuthor;
+	}
+	
+	/**
+	 * 검색어에 포함된 모든 책 조회하기(책 제목, 저자)
+	 * @param keyword : 검색어
+	 * @return 0~n 개의 결과를 가지는 List
+	 */
+	public List<BookDTO> searchBook(String keyword){
+		List<BookDTO> searchResult = new ArrayList<>();
+		
+		for(BookDTO b : bookList) {
+			//제목
+			if(	b.getTitle().contains(keyword)) {
+				searchResult.add(b);
+				continue;
+			}
+			// 저자
+			if( b.getAuthor().contains(keyword)) {
+				searchResult.add(b);
+				continue;
+			}
+			// 출판사
+			if( b.getPublisher().contains(keyword)) {
+				searchResult.add(b);
+				continue;
+			}
+		}
+		return searchResult;
+	}
 }
