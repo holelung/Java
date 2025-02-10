@@ -6,6 +6,6 @@ public class TryCatchRun {
 	public static void main(String[] args) {
 		TryCatchService service = new TryCatchService();
 		
-		service.test5();
+		service.test6();
 	}
 }
