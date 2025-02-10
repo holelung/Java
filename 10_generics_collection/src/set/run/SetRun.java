@@ -7,6 +7,6 @@ public class SetRun {
 		
 		SetService service = new SetService();
 		
-		service.test2();
+		service.lottoNumberGenerator();
 	}
 }
