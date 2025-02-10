@@ -1,6 +1,7 @@
 package list.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import list.dto.BookDTO;
@@ -205,4 +206,12 @@ public class BookService {
 		}
 		return searchResult;
 	}
+	
+	/**
+	 * 제목 오름차순 정렬
+	 */
+	public void bookListSorting() {
+		Collections.sort(bookList);
+	}
+	
 }

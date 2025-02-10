@@ -114,7 +114,7 @@ public class WrapperService {
 		int num1 = 500;
 		String s1 = num1+""; // 권장 X (가끔은 괜찮음)
 		
-		// 방법 2) Wrapper Class의 valueOf()
+		// 방법 2) Wrapper Class의 valueOf()ㅇ
 		
 		// Integer.valueOf(int값) == new integer(int값)
 		// -> int값에 필드에 세팅된 Integer 객체를 반환
