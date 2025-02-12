@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import section03.dto.Member;
 
@@ -77,4 +79,77 @@ public class ObjectService {
 		}
 		
 	}
+	
+	//-----------
+	
+	
+	
+	
+	
+	
+	public void ouputMemberList() {
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+		
+		try {
+			List<Member> memberList = new ArrayList<Member>();
+			
+			memberList.add(new Member("member01", "pass011", "재석"));
+			memberList.add(new Member("member02", "pass012", "명수"));
+			memberList.add(new Member("member03", "pass013", "준하"));
+			memberList.add(new Member("member04", "pass014", "하하"));
+			memberList.add(new Member("member05", "pass015", "길"));
+			memberList.add(new Member("member06", "pass016", "홍철"));
+			
+			// generate Stream Object
+			fos = new FileOutputStream("io_test/byte/MemberList.bin");
+			oos = new ObjectOutputStream(fos);
+			
+			oos.writeObject(memberList);
+			
+			System.out.println("회원 목록 출력완료");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if( oos != null) oos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}// ouputMemberList
+	
+	/**
+	 * MemberList.bin 읽어오기
+	 */
+	public void inputMemberList() {
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		
+		try {
+
+			// generate Stream Object
+			fis = new FileInputStream("io_test/byte/MemberList.bin");
+			ois = new ObjectInputStream(fis);
+			
+			List<Member> memberList = (List<Member>)ois.readObject();
+			
+			for(Member member : memberList) {
+				System.out.println(member);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if( ois != null) ois.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 }
