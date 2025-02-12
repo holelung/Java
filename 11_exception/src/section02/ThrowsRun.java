@@ -3,6 +3,7 @@ package section02;
 import java.io.IOException;
 
 public class ThrowsRun {
+	
 	public static void main(String[] args) {
 		ThrowsTest tt = new ThrowsTest();
 		try {
