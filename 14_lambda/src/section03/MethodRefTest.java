@@ -68,6 +68,9 @@ public class MethodRefTest {
 		System.out.println(abs2.apply(-34));
 		
 		
+		System.out.println("------------------------");
+		
+		
 	}
 	
 }
