@@ -37,7 +37,11 @@ public class TodoListDAOImpl implements TodoListDAO{
 				// 객체 생성 시 외부 파일에 작성된 List<Todo> 객체를 입력 받아 todoList에 대입
 			try {
 				ois = new ObjectInputStream(new FileInputStream(FILE_PATH));
+				// 강제 형변환
+				// 다운 캐스팅으로 볼 수도있지만, 부모-자식 관계에서의 다운캐스팅과는 약간 다름
+			
 				todoList = (ArrayList<Todo>)ois.readObject();
+				
 			}finally {
 				if(ois != null) ois.close();
 			}
